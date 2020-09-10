@@ -1,7 +1,7 @@
-import {colors} from "../../styles/theme";
+import { colors } from '../../styles/theme'
 
 export default function Button ({ children, onClick }) {
-  return(
+  return (
     <>
       <button onClick={onClick}>
         {children}
