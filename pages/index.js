@@ -12,8 +12,13 @@ import {
 import Logo from '../components/Icons/Logo'
 import { useRouter } from 'next/router'
 
+const USER_STATE = {
+  NOT_LOGGED: null,
+  NOT_KNOWN: undefined
+}
+
 export default function Home () {
-  const [user, setUser] = useState(undefined)
+  const [user, setUser] = useState(USER_STATE.NOT_KNOWN)
   const router = useRouter()
 
   useEffect(() => {
@@ -25,9 +30,10 @@ export default function Home () {
   }, [user])
 
   const handleClick = () => {
-    loginWithGitHub().then(setUser).catch(err => {
-      console.log(err)
-    })
+    loginWithGitHub()
+      .catch(err => {
+        console.log(err)
+      })
   }
 
   return (
@@ -45,14 +51,14 @@ export default function Home () {
 
           <div>
             {
-              user === null &&
+              user === USER_STATE.NOT_LOGGED &&
               <Button onClick={handleClick}>
                 <GitHub fill='#fff' width={24} height={24} />
                 Login with GitHub
               </Button>
             }
             {
-              user === undefined && <img src='/spinner.gif'/>
+              user === USER_STATE.NOT_KNOWN && <img src='/spinner.gif'/>
             }
           </div>
 
