@@ -9,7 +9,6 @@ import {
   loginWithGitHub,
   onAuthStateChanged
 } from 'firebase/client'
-import Avatar from 'components/Avatar'
 import Logo from '../components/Icons/Logo'
 import { useRouter } from 'next/router'
 
@@ -53,13 +52,7 @@ export default function Home () {
               </Button>
             }
             {
-              user && user.avatar && <div>
-                <Avatar
-                  alt={user.username}
-                  src={user.avatar}
-                  text={user.username}
-                />
-              </div>
+              user === undefined && <img src='/spinner.gif'/>
             }
           </div>
 
