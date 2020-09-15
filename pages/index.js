@@ -11,13 +11,19 @@ import {
 } from 'firebase/client'
 import Avatar from 'components/Avatar'
 import Logo from '../components/Icons/Logo'
+import { useRouter } from 'next/router'
 
 export default function Home () {
   const [user, setUser] = useState(undefined)
+  const router = useRouter()
 
   useEffect(() => {
     onAuthStateChanged(setUser)
   }, [])
+
+  useEffect(() => {
+    user && router.replace('/home')
+  }, [user])
 
   const handleClick = () => {
     loginWithGitHub().then(setUser).catch(err => {
