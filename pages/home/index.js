@@ -27,11 +27,8 @@ export default function HomePage () {
             />
           ))}
         </section>
-        <nav></nav>
+        <nav/>
         <style jsx>{`
-          section {
-            padding-top: 49px;
-          }
           
           article {
             display: flex;
@@ -40,10 +37,14 @@ export default function HomePage () {
 
           header {
             align-items: center;
+            background: #ffffffaa;
+            backdrop-filter: blur(5px);
+            border-bottom: 1px solid #eee;
             height: 49px;
             position: sticky;
             top: 0;
             display: flex;
+            position: sticky;
             border-bottom: 1px solid #ccc;
             width: 100%;
           }
@@ -51,11 +52,13 @@ export default function HomePage () {
           h2 {
             font-size: 21px;
             font-weight: 800;
+            padding-left: 15px;
           }
           
           nav {
+            background: #fff;
             bottom: 0;
-            border-top: 1px solid #ccc;
+            border-top: 1px solid #eee;
             height: 49px;
             position: sticky;
             width: 100%;
