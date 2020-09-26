@@ -10,6 +10,7 @@ export default function Devit ({ avatar, userName, content, createdAt, id }) {
         <section>
           <header>
             <strong>{userName}</strong>
+            <span> · </span>
             <date>{createdAt}</date>
           </header>
           <p>{content}</p>
@@ -29,6 +30,11 @@ export default function Devit ({ avatar, userName, content, createdAt, id }) {
           p {
             margin: 0;
             line-height: 1.3125;
+          }
+          
+          date {
+            color: #555;
+            font-size: 14px;
           }
         `}</style>
     </>
